@@ -84,7 +84,11 @@ class _MainPageState extends State<MainPage> {
     final List<Widget> _widgetOptions = <Widget>[
       Column(
         children: [
-          const Text("AMSE - TP Flutter 1"),
+          const Text(
+            'Bienvenue',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+          const Text("\nAMSE - TP Flutter 1\nListe de médias\n"),
           ElevatedButton(
             onPressed: () {
               _onItemTapped(1);
