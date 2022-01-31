@@ -8,7 +8,7 @@ class Media {
   //Constructor
   Media({this.imageURL = "", this.title = "", this.description = ""});
 
-  Widget getListTile() {
+  Widget getListTile(context) {
     return ListTile(
         title: Text(title),
         subtitle: Text(description),
@@ -16,20 +16,34 @@ class Media {
         leading: Image(
           image: NetworkImage(imageURL),
           //fit: BoxFit.cover,
-        ));
+        ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => InfoPage(
+                      imageURL: imageURL,
+                      title: title,
+                      description: description,
+                    )),
+          );
+        });
   }
 }
 
-final bds = [
+final mediaList = [
   Media(
       imageURL:
           "https://m.media-amazon.com/images/I/61oEUPa5g0L._AC_SX425_.jpg",
       title: "Tintin au Congo",
       description:
           "Tintin au Congo (initialement intitulé Les Aventures de Tintin, reporter du « Petit Vingtième », au Congo) est le deuxième album de la série de bande dessinée Les Aventures de Tintin, créée par le dessinateur belge Hergé."),
-  Media(imageURL: "https://images-na.ssl-images-amazon.com/images/I/81ZAmKN2yBL.jpg",
-  title: "Tintin au tibet",
-  description: "Tintin au Tibet est le vingtième album de la série de bande dessinée Les Aventures de Tintin, créée par le dessinateur belge Hergé.")
+  Media(
+      imageURL:
+          "https://images-na.ssl-images-amazon.com/images/I/81ZAmKN2yBL.jpg",
+      title: "Tintin au tibet",
+      description:
+          "Tintin au Tibet est le vingtième album de la série de bande dessinée Les Aventures de Tintin, créée par le dessinateur belge Hergé.")
 ];
 
 void main() => runApp(const MyApp());
@@ -37,7 +51,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter Code Sample';
+  static const String _title = 'TP Flutter 1';
 
   @override
   Widget build(BuildContext context) {
@@ -59,17 +73,6 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0000: Home',
-      style: optionStyle,
-    ),
-    MediaPage(),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -79,9 +82,29 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Liste des trois pages
+    final List<Widget> _widgetOptions = <Widget>[
+      Center(
+        child: Column(children: [
+          const Text("AMSE - TP Flutter 1"),
+          ElevatedButton(
+            onPressed: () {
+              _onItemTapped(1);
+            },
+            child: const Text('Voir les médias'),
+          ),
+        ]),
+      ),
+      const MediaPage(),
+      const Text(
+        'Index 2: School',
+        style: optionStyle,
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('TP flutter 1'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -93,11 +116,11 @@ class _MainPageState extends State<MainPage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.play_arrow),
             label: 'Media',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.question_mark),
             label: 'About',
           ),
         ],
@@ -121,9 +144,9 @@ class _MediaPageState extends State<MediaPage> {
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.all(8),
-      itemCount: bds.length,
+      itemCount: mediaList.length,
       itemBuilder: (BuildContext context, int index) {
-        return bds[index].getListTile();
+        return mediaList[index].getListTile(context);
       },
       separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
@@ -131,22 +154,33 @@ class _MediaPageState extends State<MediaPage> {
 }
 
 class InfoPage extends StatelessWidget {
-  const InfoPage({Key? key}) : super(key: key);
+  const InfoPage(
+      {Key? key, this.title = "", this.description = "", this.imageURL = ""})
+      : super(key: key);
+  final String title;
+  final String description;
+  final String imageURL;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Route'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
+        appBar: AppBar(
+          title: Text(title),
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image(
+                image: NetworkImage(imageURL),
+              ),
+              Text(
+                title,
+                style: const TextStyle(fontSize: 18),
+              ),
+              Text(description)
+            ],
+          ),
+          padding: const EdgeInsets.all(16.0),
+        ));
   }
 }
