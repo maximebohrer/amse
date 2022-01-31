@@ -71,8 +71,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -84,8 +82,8 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     //Liste des trois pages
     final List<Widget> _widgetOptions = <Widget>[
-      Center(
-        child: Column(children: [
+      Column(
+        children: [
           const Text("AMSE - TP Flutter 1"),
           ElevatedButton(
             onPressed: () {
@@ -93,18 +91,27 @@ class _MainPageState extends State<MainPage> {
             },
             child: const Text('Voir les médias'),
           ),
-        ]),
+        ],
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
       ),
       const MediaPage(),
-      const Text(
-        'Index 2: School',
-        style: optionStyle,
+      Column(
+        children: const [
+          Text(
+            'Maxime Bohrer',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+          Text('https://github.com/maximebohrer/amse')
+        ],
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
       ),
     ];
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TP flutter 1'),
+        title: const Text('TP Flutter 1'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
