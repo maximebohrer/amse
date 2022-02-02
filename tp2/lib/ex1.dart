@@ -8,7 +8,7 @@ class Exercice1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: const Image(image: NetworkImage("https://picsum.photos/512/1024"),),
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(10),
     );
   }
 }
