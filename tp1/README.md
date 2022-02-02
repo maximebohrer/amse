@@ -1,16 +1,10 @@
-# tp1
+TP 1
+----
 
-A new Flutter project.
+Le TP 1 est un premier exemple d'une application basique contenant 3 pages, et qui permet de parcourir une liste de médias. Les médias sont cliquables pour afficher l'image en grand ainsi que plus d'informations.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Lancement :
+```bash
+cd tp1
+flutter run
+```
