@@ -31,24 +31,118 @@ class _Exercice2State extends State<Exercice2> {
   double rotX = 0;
   double rotZ = 0;
   bool mirror = false;
-  double scale = 0.5;
+  double scale = 1;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Transform(
-        alignment: Alignment.center,
-        transform: Matrix4.identity()
-          ..scale(scale)
-          ..rotateX(rotX)
-          ..rotateY(rotZ),
-        child: const Image(
-          image: NetworkImage("https://picsum.photos/512/1024"),
-        ),
+    return Scaffold(
+      appBar: AppBar(title: const Text("Rotate / resize image")),
+      body: SingleChildScrollView(
+        child: Column(children: [
+          //Image
+          Container(
+            child: Transform(
+              alignment: Alignment.center,
+              transform: Matrix4.identity()
+                ..scale(scale)
+                ..rotateY(mirror ? math.pi : 0)
+                ..rotateX(rotX)
+                ..rotateZ(rotZ),
+              child: const Image(
+                image: NetworkImage(
+                    "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"),
+              ),
+            ),
+            padding: const EdgeInsets.all(10),
+            clipBehavior: Clip.hardEdge,
+            decoration: const BoxDecoration(color: Colors.white),
+          ),
+
+          //Slider rot X
+          Container(
+            child: Row(
+              children: [
+                const Text("Rotate X:"),
+                Expanded(
+                  child: Slider(
+                    value: rotX,
+                    min: -math.pi,
+                    max: math.pi,
+                    onChanged: (double value) {
+                      setState(() {
+                        rotX = value;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(10),
+          ),
+
+          //Slider rot Z
+          Container(
+            child: Row(
+              children: [
+                const Text("Rotate Z:"),
+                Expanded(
+                  child: Slider(
+                    value: rotZ,
+                    min: -math.pi,
+                    max: math.pi,
+                    onChanged: (double value) {
+                      setState(() {
+                        rotZ = value;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(10),
+          ),
+
+          //Checkbox mirror
+          Container(
+            child: Row(
+              children: [
+                const Text("Mirror:"),
+                Checkbox(
+                  value: mirror,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      mirror = value!;
+                    });
+                  },
+                )
+              ],
+            ),
+            padding: const EdgeInsets.all(10),
+          ),
+
+          //Slider scale
+          Container(
+            child: Row(
+              children: [
+                const Text("Scale:"),
+                Expanded(
+                  child: Slider(
+                    value: scale,
+                    min: 0.1,
+                    max: 2.5,
+                    onChanged: (double value) {
+                      setState(() {
+                        scale = value;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(10),
+          ),
+        ]),
       ),
-      padding: const EdgeInsets.all(5),
-      clipBehavior: Clip.hardEdge,
-      decoration: const BoxDecoration(color: Colors.white),
     );
   }
 }
