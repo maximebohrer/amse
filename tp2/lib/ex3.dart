@@ -32,11 +32,11 @@ List<MenuTile> listExercice = [
       createExercice: () => const Exercice5b()),
   MenuTile(
       title: "Exercice 5c",
-      info: "Fixed grid of cropped images",
+      info: "Configurable Taquin Board",
       createExercice: () => const Exercice5c()),
   MenuTile(
-      title: "Exercice 5c",
-      info: "Fixed grid of cropped images",
+      title: "Exercice 6a",
+      info: "Moving Tiles",
       createExercice: () => PositionedTiles()),
 ];
 
