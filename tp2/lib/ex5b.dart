@@ -14,7 +14,7 @@ class Exercice5b extends StatelessWidget {
         crossAxisCount: 3,
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 10.0,
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(5.0),
         children: [
           Tile(imageURL: imageURL, alignment: const Alignment(-1, -1))
               .croppedImageTile(),

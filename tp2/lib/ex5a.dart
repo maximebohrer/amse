@@ -13,7 +13,7 @@ class Exercice5a extends StatelessWidget {
         crossAxisCount: 3,
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 10.0,
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(5.0),
         children: [
           Container(
             child: const Center(
@@ -21,7 +21,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -29,7 +30,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -37,7 +39,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -45,7 +48,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -53,7 +57,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -61,7 +66,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -69,7 +75,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -77,7 +84,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
           Container(
             child: const Center(
@@ -85,7 +93,8 @@ class Exercice5a extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textScaleFactor: 7,
                     style: TextStyle(fontWeight: FontWeight.bold))),
-            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor(),
+            color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
+                .toColor(),
           ),
         ],
       ),
