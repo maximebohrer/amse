@@ -38,8 +38,8 @@ class Tile {
 
 Tile tile = Tile(imageURL: 'https://picsum.photos/512', n: 3, x: 1, y: 1);
 
-class DisplayTileWidget extends StatelessWidget {
-  const DisplayTileWidget({Key? key}) : super(key: key);
+class Exercice4 extends StatelessWidget {
+  const Exercice4({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

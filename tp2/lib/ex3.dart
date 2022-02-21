@@ -20,7 +20,7 @@ List<MenuTile> listExercice = [
   MenuTile(
       title: "Exercice 4",
       info: "Display a tile",
-      createExercice: () => const DisplayTileWidget()),
+      createExercice: () => const Exercice4()),
   MenuTile(
       title: "Exercice 5a",
       info: "Grid of colored boxes",
