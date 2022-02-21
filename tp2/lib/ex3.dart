@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tp2/ex1.dart';
 import 'package:tp2/ex2.dart';
 
+List<Type> l = [Exercice1, Exercice2, Exercice3];
+
 class Exercice3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,9 +13,9 @@ class Exercice3 extends StatelessWidget {
       ),
       body: Container(
         child: ListView(
-          children: const [
-            MenuTile(title: "a", info: "b", exercice: Exercice1()),
-            MenuTile(title: "a", info: "b", exercice: Exercice2()),
+          children: [
+            MenuTile(title: "a", info: "b", createExercice: () => const Exercice1()),
+            MenuTile(title: "a", info: "b", createExercice: () => const Exercice2()),
           ],
         ),
       ),
@@ -21,16 +23,13 @@ class Exercice3 extends StatelessWidget {
   }
 }
 
-class MenuTile<Exercice> extends StatelessWidget {
+class MenuTile extends StatelessWidget {
   const MenuTile(
-      {Key? key,
-      required this.title,
-      required this.info,
-      required this.exercice})
+      {Key? key, required this.title, required this.info, required this.createExercice})
       : super(key: key);
   final String title;
   final String info;
-  final Widget exercice;
+  final Function createExercice;
 
   @override
   Widget build(BuildContext context) {
@@ -51,26 +50,8 @@ class MenuTile<Exercice> extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (context) {
-          return exercice;
+          return createExercice();
         },
-      ),
-    );
-  }
-}
-
-class ExerciceTest extends StatelessWidget {
-  const ExerciceTest({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Plus d'information"),
-      ),
-      body: Center(
-        child: Container(
-          child: const Text("[ExerciceX]"),
-        ),
       ),
     );
   }
