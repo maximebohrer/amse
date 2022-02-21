@@ -19,7 +19,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("1",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -28,7 +28,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("2",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -37,7 +37,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("3",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -46,7 +46,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("4",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -55,7 +55,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("5",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -64,7 +64,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("6",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -73,7 +73,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("7",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -82,7 +82,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("8",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
@@ -91,7 +91,7 @@ class Exercice5a extends StatelessWidget {
             child: const Center(
                 child: Text("9",
                     textAlign: TextAlign.center,
-                    textScaleFactor: 7,
+                    textScaleFactor: 5,
                     style: TextStyle(fontWeight: FontWeight.bold))),
             color: HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1)
                 .toColor(),
