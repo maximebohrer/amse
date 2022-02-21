@@ -1,72 +1,77 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+import 'ex4.dart';
 
-// ==============
-// Models
-// ==============
+const imageURL = 'https://picsum.photos/512';
 
-math.Random random = new math.Random();
-
-class Tile {
-  late Color color;
-
-  Tile(this.color);
-  Tile.randomColor() {
-    color = Color.fromARGB(
-        255, random.nextInt(255), random.nextInt(255), random.nextInt(255));
-  }
-}
-
-// ==============
-// Widgets
-// ==============
-
-class TileWidget extends StatelessWidget {
-  final Tile tile;
-
-  TileWidget(this.tile);
+class Exercice6b extends StatefulWidget {
+  const Exercice6b({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return this.coloredBox();
-  }
-
-  Widget coloredBox() {
-    return Container(
-        color: tile.color,
-        child: Padding(
-          padding: EdgeInsets.all(70.0),
-        ));
-  }
+  State<Exercice6b> createState() => _Exercice6bState();
 }
 
-void main() => runApp(new MaterialApp(home: PositionedTiles()));
-
-class PositionedTiles extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => PositionedTilesState();
-}
-
-class PositionedTilesState extends State<PositionedTiles> {
-  List<Widget> tiles =
-      List<Widget>.generate(2, (index) => TileWidget(Tile.randomColor()));
+class _Exercice6bState extends State<Exercice6b> {
+  int n = 3;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Moving Tiles'),
+        title: const Text("Taquin board"),
         centerTitle: true,
       ),
-      body: Row(children: tiles),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.sentiment_very_satisfied), onPressed: swapTiles),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //GridView
+            GridView.count(
+              crossAxisCount: n,
+              mainAxisSpacing: 2.5,
+              crossAxisSpacing: 2.5,
+              padding: const EdgeInsets.all(20.0),
+              shrinkWrap: true,
+              children: createTileList(),
+            ),
+
+            //Slider n
+            Container(
+              child: Row(
+                children: [
+                  const Text("Taille :"),
+                  Expanded(
+                    child: Slider(
+                      value: n.toDouble(),
+                      min: 2,
+                      max: 10,
+                      divisions: 8,
+                      label: n.toString(),
+                      onChanged: (double value) {
+                        setState(() {
+                          n = value.toInt();
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              padding: const EdgeInsets.all(10),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
-  swapTiles() {
-    setState(() {
-      tiles.insert(1, tiles.removeAt(0));
-    });
+  List<Widget> createTileList() {
+    //Construction de la liste des tiles
+    List<Widget> tileList = [];
+    for (int y = 0; y < n; y++) {
+      for (int x = 0; x < n; x++) {
+        tileList.add(
+          Tile(imageURL: imageURL, n: n, x: x, y: y).croppedImageTile(),
+        );
+      }
+    }
+    return tileList;
   }
 }
