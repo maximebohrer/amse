@@ -47,7 +47,7 @@ class _Exercice5cState extends State<Exercice5c> {
             Container(
               child: Row(
                 children: [
-                  const Text("Rotate X:"),
+                  const Text("Taille :"),
                   Expanded(
                     child: Slider(
                       value: n.toDouble(),
