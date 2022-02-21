@@ -12,8 +12,8 @@ class Exercice5b extends StatelessWidget {
       appBar: AppBar(title: const Text("GridView Example")),
       body: GridView.count(
         crossAxisCount: 3,
-        mainAxisSpacing: 10.0,
-        crossAxisSpacing: 10.0,
+        mainAxisSpacing: 2.5,
+        crossAxisSpacing: 2.5,
         padding: const EdgeInsets.all(20.0),
         children: [
           Tile(imageURL: imageURL, alignment: const Alignment(-1, -1))
