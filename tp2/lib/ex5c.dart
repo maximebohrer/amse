@@ -15,16 +15,6 @@ class _Exercice5cState extends State<Exercice5c> {
 
   @override
   Widget build(BuildContext context) {
-    //Construction de la liste des tiles
-    List<Widget> listTile = [];
-    for (int y = 0; y < n; y++) {
-      for (int x = 0; x < n; x++) {
-        listTile.add(
-          Tile(imageURL: imageURL, n: n, x: x, y: y).croppedImageTile(),
-        );
-      }
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Taquin board"),
@@ -40,7 +30,7 @@ class _Exercice5cState extends State<Exercice5c> {
               crossAxisSpacing: 2.5,
               padding: const EdgeInsets.all(20.0),
               shrinkWrap: true,
-              children: listTile,
+              children: createTileList(),
             ),
 
             //Slider n
@@ -70,5 +60,18 @@ class _Exercice5cState extends State<Exercice5c> {
         ),
       ),
     );
+  }
+
+  List<Widget> createTileList() {
+    //Construction de la liste des tiles
+    List<Widget> tileList = [];
+    for (int y = 0; y < n; y++) {
+      for (int x = 0; x < n; x++) {
+        tileList.add(
+          Tile(imageURL: imageURL, n: n, x: x, y: y).croppedImageTile(),
+        );
+      }
+    }
+    return tileList;
   }
 }
