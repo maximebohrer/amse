@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 // Cette classe prend argument le nombre n de cases sur une ligne,
-// et les coordonnées x et y de la case, et calcule toute seule l'alignement
+// et les coordonnées x et y (de 0 à n-1) de la case, et calcule
+// toute seule l'alignement.
 
 class Tile {
   String imageURL;

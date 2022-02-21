@@ -4,6 +4,7 @@ import 'package:tp2/ex2.dart';
 import 'package:tp2/ex4.dart';
 import 'package:tp2/ex5a.dart';
 import 'package:tp2/ex5b.dart';
+import 'package:tp2/ex5c.dart';
 
 //==========================
 
@@ -28,6 +29,10 @@ List<MenuTile> listExercice = [
       title: "Exercice 5b",
       info: "Fixed grid of cropped images",
       createExercice: () => const Exercice5b()),
+  MenuTile(
+      title: "Exercice 5c",
+      info: "Fixed grid of cropped images",
+      createExercice: () => const Exercice5c()),
 ];
 
 //===========================
