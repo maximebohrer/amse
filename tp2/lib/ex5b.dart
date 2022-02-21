@@ -3,18 +3,19 @@ import 'ex4.dart';
 
 //====================
 
-const imageURL = 'https://picsum.photos/512';
+const String imageURL = 'https://picsum.photos/512';
+const int n = 3; //Nombre de Tile sur une ligne
 
 List<Widget> listTile = [
-  Tile(imageURL: imageURL, n: 3, x: 0, y: 0).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 1, y: 0).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 2, y: 0).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 0, y: 1).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 1, y: 1).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 2, y: 1).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 0, y: 2).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 1, y: 2).croppedImageTile(),
-  Tile(imageURL: imageURL, n: 3, x: 2, y: 2).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 0, y: 0).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 1, y: 0).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 2, y: 0).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 0, y: 1).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 1, y: 1).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 2, y: 1).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 0, y: 2).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 1, y: 2).croppedImageTile(),
+  Tile(imageURL: imageURL, n: n, x: 2, y: 2).croppedImageTile(),
 ];
 
 //====================
@@ -27,7 +28,7 @@ class Exercice5b extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("GridView Example")),
       body: GridView.count(
-        crossAxisCount: 3,
+        crossAxisCount: n,
         mainAxisSpacing: 2.5,
         crossAxisSpacing: 2.5,
         padding: const EdgeInsets.all(20.0),
