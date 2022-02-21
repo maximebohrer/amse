@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ex6a.dart';
+import 'ex5a.dart';
 
 const imageURL = 'https://picsum.photos/512';
 
@@ -62,13 +62,13 @@ class _Exercice6bState extends State<Exercice6b> {
     );
   }
 
-  List<Tile> createTileList() {
+  List<Widget> createTileList() {
     //Construction de la liste des tiles
-    List<Tile> tileList = [];
+    List<Widget> tileList = [];
     for (int y = 0; y < n; y++) {
       for (int x = 0; x < n; x++) {
         tileList.add(
-          Tile.randomColor(),
+          ColorTile.randomColor(n*y+x).getWidget(),
         );
       }
     }
