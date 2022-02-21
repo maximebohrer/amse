@@ -5,7 +5,7 @@ import 'dart:math' as math;
 // Models
 // ==============
 
-math.Random random = new math.Random();
+math.Random random = math.Random();
 
 class Tile {
   late Color color;
@@ -28,19 +28,19 @@ class TileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return this.coloredBox();
+    return coloredBox();
   }
 
   Widget coloredBox() {
     return Container(
         color: tile.color,
-        child: Padding(
+        child: const Padding(
           padding: EdgeInsets.all(70.0),
         ));
   }
 }
 
-void main() => runApp(new MaterialApp(home: PositionedTiles()));
+void main() => runApp(MaterialApp(home: PositionedTiles()));
 
 class PositionedTiles extends StatefulWidget {
   @override
@@ -55,12 +55,13 @@ class PositionedTilesState extends State<PositionedTiles> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Moving Tiles'),
+        title: const Text('Moving Tiles'),
         centerTitle: true,
       ),
       body: Row(children: tiles),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.sentiment_very_satisfied), onPressed: swapTiles),
+          child: const Icon(Icons.sentiment_very_satisfied),
+          onPressed: swapTiles),
     );
   }
 
