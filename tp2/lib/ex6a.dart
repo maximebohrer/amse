@@ -24,7 +24,7 @@ class Tile {
 class TileWidget extends StatelessWidget {
   final Tile tile;
 
-  TileWidget(this.tile);
+  const TileWidget(this.tile, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +43,8 @@ class TileWidget extends StatelessWidget {
 void main() => runApp(MaterialApp(home: PositionedTiles()));
 
 class PositionedTiles extends StatefulWidget {
+  const PositionedTiles({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => PositionedTilesState();
 }
