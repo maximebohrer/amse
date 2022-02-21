@@ -8,7 +8,10 @@ class Exercice5a extends StatelessWidget {
   Widget build(BuildContext context) {
     math.Random random = math.Random();
     return Scaffold(
-      appBar: AppBar(title: const Text("GridView Example (random colors)")),
+      appBar: AppBar(
+        title: const Text("GridView Example (random colors)"),
+        centerTitle: true,
+      ),
       body: GridView.count(
         crossAxisCount: 3,
         mainAxisSpacing: 2.5,

@@ -26,7 +26,10 @@ class _Exercice5cState extends State<Exercice5c> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text("GridView Example")),
+      appBar: AppBar(
+        title: const Text("GridView Example"),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
