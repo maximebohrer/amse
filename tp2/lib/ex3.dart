@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tp2/ex1.dart';
 import 'package:tp2/ex2.dart';
 import 'package:tp2/ex4.dart';
+import 'package:tp2/ex5.dart';
 
 //==========================
 
@@ -17,7 +18,11 @@ List<MenuTile> listExercice = [
   MenuTile(
       title: "Exercice 4",
       info: "Display a tile",
-      createExercice: () => DisplayTileWidget()),
+      createExercice: () => const DisplayTileWidget()),
+      MenuTile(
+      title: "Exercice 5a",
+      info: "Grid of colored boxes",
+      createExercice: () => const Exercice5()),
 ];
 
 //===========================

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class Exercice2 extends StatefulWidget {
-  const Exercice2({Key? key}) : super(key: key);
+class Exercice5 extends StatefulWidget {
+  const Exercice5({Key? key}) : super(key: key);
 
   @override
-  _Exercice2State createState() => _Exercice2State();
+  _Exercice5State createState() => _Exercice5State();
 }
 
-class _Exercice2State extends State<Exercice2> {
+class _Exercice5State extends State<Exercice5> {
   double rotX = 0;
   double rotZ = 0;
   bool mirror = false;
@@ -17,27 +17,38 @@ class _Exercice2State extends State<Exercice2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Rotate / resize image")),
+      appBar: AppBar(title: const Text("GridView Example")),
       body: SingleChildScrollView(
         child: Column(children: [
           //Image
-          Container(
-            child: Transform(
-              alignment: Alignment.center,
-              transform: Matrix4.identity()
-                ..scale(scale)
-                ..rotateY(mirror ? math.pi : 0)
-                ..rotateX(rotX)
-                ..rotateZ(rotZ),
-              child: const Image(
-                image: NetworkImage(
-                    "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"),
-              ),
-            ),
-            padding: const EdgeInsets.all(10),
-            clipBehavior: Clip.hardEdge,
-            decoration: const BoxDecoration(color: Colors.white),
-          ),
+          GridView.count(crossAxisCount: 3, mainAxisSpacing: 10.0, crossAxisSpacing: 10.0, padding: const EdgeInsets.all(20.0), children: [
+            Container(
+      child: const Text("He'd have you all unravel at the"),
+      color: Colors.teal[100],
+    ),
+    Container(
+      child: const Text('Heed not the rabble'),
+      color: Colors.teal[200],
+    ),
+    Container(
+      child: const Text('Sound of screams but the'),
+      color: Colors.teal[300],
+    ),
+    Container(
+      child: const Text('Who scream'),
+      color: Colors.teal[400],
+    ),
+    Container(
+      padding: const EdgeInsets.all(8),
+      child: const Text('Revolution is coming...'),
+      color: Colors.teal[500],
+    ),
+    Container(
+      padding: const EdgeInsets.all(8),
+      child: const Text('Revolution, they...'),
+      color: Colors.teal[600],
+    ),
+          ],),
 
           //Slider rot X
           Container(

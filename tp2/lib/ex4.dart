@@ -24,7 +24,7 @@ class Tile {
 }
 
 Tile tile =
-    Tile(imageURL: 'https://picsum.photos/512', alignment: const Alignment(-1.5, 0));
+    Tile(imageURL: 'https://picsum.photos/512', alignment: const Alignment(-1, 0));
 
 class DisplayTileWidget extends StatelessWidget {
   const DisplayTileWidget({Key? key}) : super(key: key);
@@ -55,6 +55,7 @@ class DisplayTileWidget extends StatelessWidget {
   Widget createTileWidgetFrom(Tile tile) {
     return InkWell(
       child: tile.croppedImageTile(),
+      splashColor: Colors.blue,
       onTap: () {
         print("tapped on tile");
       },
