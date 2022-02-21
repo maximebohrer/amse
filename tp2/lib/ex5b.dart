@@ -27,7 +27,7 @@ class Exercice5b extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("GridView Example"),
+        title: const Text("Taquin board"),
         centerTitle: true,
       ),
       body: GridView.count(
