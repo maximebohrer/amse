@@ -7,6 +7,8 @@ import 'package:tp2/ex5b.dart';
 import 'package:tp2/ex5c.dart';
 import 'package:tp2/ex6a.dart';
 
+import 'ex6b.dart';
+
 //==========================
 
 List<MenuTile> listExercice = [
@@ -38,6 +40,10 @@ List<MenuTile> listExercice = [
       title: "Exercice 6a",
       info: "Moving Tiles",
       createExercice: () => PositionedTiles()),
+  MenuTile(
+      title: "Exercice 6b",
+      info: "Moving Tiles in Grid",
+      createExercice: () => const Exercice6b()),
 ];
 
 //===========================
