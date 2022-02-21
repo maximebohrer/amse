@@ -13,7 +13,7 @@ class Exercice5a extends StatelessWidget {
         crossAxisCount: 3,
         mainAxisSpacing: 2.5,
         crossAxisSpacing: 2.5,
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(5.0),
         children: [
           Container(
             child: const Center(
