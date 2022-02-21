@@ -5,7 +5,7 @@ import 'package:tp2/ex4.dart';
 import 'package:tp2/ex5a.dart';
 import 'package:tp2/ex5b.dart';
 import 'package:tp2/ex5c.dart';
-import 'package:tp2/ex6.dart';
+import 'package:tp2/ex6a.dart';
 
 //==========================
 
