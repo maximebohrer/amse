@@ -1,30 +1,42 @@
 import 'package:flutter/material.dart';
 
+
+// Cette classe prend argument le nombre n de cases sur une ligne,
+// et les coordonnées x et y de la case, et calcule toute seule l'alignement
+
 class Tile {
   String imageURL;
-  Alignment alignment;
+  int x;
+  int y;
+  int n;
 
-  Tile({required this.imageURL, required this.alignment});
+  Tile(
+      {required this.imageURL,
+      required this.n,
+      required this.x,
+      required this.y});
 
   Widget croppedImageTile() {
     return FittedBox(
       fit: BoxFit.fill,
       child: ClipRect(
-        child: Container(
-          child: Align(
-            alignment: alignment,
-            widthFactor: 0.3333333333,
-            heightFactor: 0.33333333333,
-            child: Image.network(imageURL),
-          ),
+        child: Align(
+          alignment: Alignment(2 * x / (n-1) - 1, 2 * y / (n-1) - 1),
+          widthFactor: 1 / n,
+          heightFactor: 1 / n,
+          child: Image.network(imageURL),
         ),
       ),
     );
   }
+
+  Widget getWidget(void Function()? onTap) {
+    return InkWell(
+        child: tile.croppedImageTile(), splashColor: Colors.blue, onTap: onTap);
+  }
 }
 
-Tile tile =
-    Tile(imageURL: 'https://picsum.photos/512', alignment: const Alignment(-1, 0));
+Tile tile = Tile(imageURL: 'https://picsum.photos/512', n: 3, x: 1, y: 1);
 
 class DisplayTileWidget extends StatelessWidget {
   const DisplayTileWidget({Key? key}) : super(key: key);
@@ -43,22 +55,14 @@ class DisplayTileWidget extends StatelessWidget {
             height: 150.0,
             child: Container(
                 margin: const EdgeInsets.all(20.0),
-                child: createTileWidgetFrom(tile))),
-        Container(
+                child: tile.getWidget(() {
+                  print("tapped on tile");
+                }))),
+        SizedBox(
             height: 200,
             child:
                 Image.network('https://picsum.photos/512', fit: BoxFit.cover))
       ])),
-    );
-  }
-
-  Widget createTileWidgetFrom(Tile tile) {
-    return InkWell(
-      child: tile.croppedImageTile(),
-      splashColor: Colors.blue,
-      onTap: () {
-        print("tapped on tile");
-      },
     );
   }
 }
