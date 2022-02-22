@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ex4.dart';
+import 'common.dart';
 
 const imageURL = 'https://picsum.photos/512';
 
@@ -68,7 +68,7 @@ class _Exercice5cState extends State<Exercice5c> {
     for (int y = 0; y < n; y++) {
       for (int x = 0; x < n; x++) {
         tileList.add(
-          Tile(imageURL: imageURL, n: n, x: x, y: y).croppedImageTile(),
+          ImageTile(imageURL: imageURL, n: n, x: x, y: y).getWidget(),
         );
       }
     }

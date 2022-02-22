@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ex5a.dart';
+import 'common.dart';
 
 const imageURL = 'https://picsum.photos/512';
 
@@ -12,9 +12,16 @@ class Exercice6b extends StatefulWidget {
 
 class _Exercice6bState extends State<Exercice6b> {
   int n = 3;
+  bool mustCreateTileList = true;
+  late List<ColorTile> tileList;
 
   @override
   Widget build(BuildContext context) {
+    if (mustCreateTileList) {
+      tileList = createTileList();
+      mustCreateTileList = false;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Taquin board"),
@@ -30,7 +37,7 @@ class _Exercice6bState extends State<Exercice6b> {
               crossAxisSpacing: 2.5,
               padding: const EdgeInsets.all(20.0),
               shrinkWrap: true,
-              children: createTileList(),
+              children: tileList.map((e) => e.getWidget()).toList(),
             ),
 
             //Slider n
@@ -48,6 +55,7 @@ class _Exercice6bState extends State<Exercice6b> {
                       onChanged: (double value) {
                         setState(() {
                           n = value.toInt();
+                          mustCreateTileList = true;
                         });
                       },
                     ),
@@ -62,16 +70,17 @@ class _Exercice6bState extends State<Exercice6b> {
     );
   }
 
-  List<Widget> createTileList() {
+  List<ColorTile> createTileList() {
     //Construction de la liste des tiles
-    List<Widget> tileList = [];
+    List<ColorTile> tileList = [];
     for (int y = 0; y < n; y++) {
       for (int x = 0; x < n; x++) {
         tileList.add(
-          ColorTile.randomColor(n*y+x).getWidget(),
+          ColorTile.randomColor(n * y + x),
         );
       }
     }
+    tileList[randomInt(n * n)].isEmpty = true;
     return tileList;
   }
 }

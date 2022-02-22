@@ -1,42 +1,8 @@
 import 'package:flutter/material.dart';
 
-// Cette classe prend argument le nombre n de cases sur une ligne,
-// et les coordonnées x et y (de 0 à n-1) de la case, et calcule
-// toute seule l'alignement.
+import 'common.dart';
 
-class Tile {
-  String imageURL;
-  int x;
-  int y;
-  int n;
-
-  Tile(
-      {required this.imageURL,
-      required this.n,
-      required this.x,
-      required this.y});
-
-  Widget croppedImageTile() {
-    return FittedBox(
-      fit: BoxFit.fill,
-      child: ClipRect(
-        child: Align(
-          alignment: Alignment(2 * x / (n-1) - 1, 2 * y / (n-1) - 1),
-          widthFactor: 1 / n,
-          heightFactor: 1 / n,
-          child: Image.network(imageURL),
-        ),
-      ),
-    );
-  }
-
-  Widget getWidget(void Function()? onTap) {
-    return InkWell(
-        child: tile.croppedImageTile(), splashColor: Colors.blue, onTap: onTap);
-  }
-}
-
-Tile tile = Tile(imageURL: 'https://picsum.photos/512', n: 3, x: 1, y: 1);
+ImageTile tile = ImageTile(imageURL: 'https://picsum.photos/512', n: 3, x: 1, y: 1);
 
 class Exercice4 extends StatelessWidget {
   const Exercice4({Key? key}) : super(key: key);

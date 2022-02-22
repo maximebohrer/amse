@@ -38,7 +38,7 @@ List<MenuTile> listExercice = [
   MenuTile(
       title: "Exercice 6a",
       info: "Moving Tiles",
-      createExercice: () => PositionedTiles()),
+      createExercice: () => const Exercice6a()),
   MenuTile(
       title: "Exercice 6b",
       info: "Moving Tiles in Grid",

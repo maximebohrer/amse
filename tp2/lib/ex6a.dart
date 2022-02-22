@@ -1,57 +1,16 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+import 'common.dart';
 
-// ==============
-// Models
-// ==============
-
-math.Random random = math.Random();
-
-class Tile {
-  late Color color;
-
-  Tile(this.color);
-  Tile.randomColor() {
-    color = Color.fromARGB(
-        255, random.nextInt(255), random.nextInt(255), random.nextInt(255));
-  }
-}
-
-// ==============
-// Widgets
-// ==============
-
-class TileWidget extends StatelessWidget {
-  final Tile tile;
-
-  const TileWidget(this.tile, {Key? key}) : super(key: key);
+class Exercice6a extends StatefulWidget {
+  const Exercice6a({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return coloredBox();
-  }
-
-  Widget coloredBox() {
-    return Container(
-        color: tile.color,
-        child: const Padding(
-          padding: EdgeInsets.all(70.0),
-        ));
-  }
+  State<StatefulWidget> createState() => Exercice6aState();
 }
 
-void main() => runApp(MaterialApp(home: PositionedTiles()));
-
-class PositionedTiles extends StatefulWidget {
-  const PositionedTiles({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => PositionedTilesState();
-}
-
-class PositionedTilesState extends State<PositionedTiles> {
-  List<Widget> tiles =
-      List<Widget>.generate(2, (index) => TileWidget(Tile.randomColor()));
+class Exercice6aState extends State<Exercice6a> {
+  List<ColorTile> tiles =
+      List<ColorTile>.generate(2, (index) => ColorTile.randomColor(index));
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +19,13 @@ class PositionedTilesState extends State<PositionedTiles> {
         title: const Text('Moving Tiles'),
         centerTitle: true,
       ),
-      body: Row(children: tiles),
+      body: GridView.count(
+        crossAxisCount: 3,
+        mainAxisSpacing: 2.5,
+        crossAxisSpacing: 2.5,
+        padding: const EdgeInsets.all(20.0),
+        children: [tiles[0].getWidget(), tiles[1].getWidget()],
+      ),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.sentiment_very_satisfied),
           onPressed: swapTiles),

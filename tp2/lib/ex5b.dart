@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ex4.dart';
+import 'common.dart';
 
 //====================
 
@@ -7,15 +7,15 @@ const String imageURL = 'https://picsum.photos/512';
 const int n = 3; //Nombre de Tile sur une ligne
 
 List<Widget> listTile = [
-  Tile(imageURL: imageURL, n: n, x: 0, y: 0).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 1, y: 0).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 2, y: 0).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 0, y: 1).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 1, y: 1).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 2, y: 1).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 0, y: 2).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 1, y: 2).croppedImageTile(),
-  Tile(imageURL: imageURL, n: n, x: 2, y: 2).croppedImageTile(),
+  ImageTile(imageURL: imageURL, n: n, x: 0, y: 0).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 1, y: 0).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 2, y: 0).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 0, y: 1).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 1, y: 1).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 2, y: 1).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 0, y: 2).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 1, y: 2).getWidget(),
+  ImageTile(imageURL: imageURL, n: n, x: 2, y: 2).getWidget(),
 ];
 
 //====================
