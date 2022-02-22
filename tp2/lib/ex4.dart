@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'common.dart';
 
 ImageTile tile = ImageTile(imageURL: 'https://picsum.photos/512', n: 3, x: 1, y: 1);
@@ -21,7 +20,7 @@ class Exercice4 extends StatelessWidget {
             height: 150.0,
             child: Container(
                 margin: const EdgeInsets.all(20.0),
-                child: tile.getWidget(() {
+                child: tile.getWidget(onTap: () {
                   print("tapped on tile");
                 }))),
         SizedBox(

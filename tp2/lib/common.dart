@@ -59,7 +59,7 @@ class ImageTile {
       required this.x,
       required this.y});
 
-  Widget getWidget([void Function()? onTap]) {
+  Widget getWidget({void Function()? onTap}) {
     if (isEmpty) return const SizedBox.shrink(); //empty widget
     return InkWell(
         child: FittedBox(
