@@ -1,48 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:tp2/ex1.dart';
-import 'package:tp2/ex2.dart';
-import 'package:tp2/ex4.dart';
-import 'package:tp2/ex5a.dart';
-import 'package:tp2/ex5b.dart';
-import 'package:tp2/ex5c.dart';
-import 'package:tp2/ex6a.dart';
+import 'ex1.dart';
+import 'ex2.dart';
+import 'ex4.dart';
+import 'ex5a.dart';
+import 'ex5b.dart';
+import 'ex5c.dart';
+import 'ex6a.dart';
 import 'ex6b.dart';
+import 'ex7.dart';
 
 //==========================
 
 List<MenuTile> listExercice = [
   MenuTile(
       title: "Exercice 1",
-      info: "Affichage d'une image aléatoire",
+      info: "Affichage d'une image",
       createExercice: () => const Exercice1()),
   MenuTile(
       title: "Exercice 2",
-      info: "Rotate & scale image",
+      info: "Transformations sur une image",
       createExercice: () => const Exercice2()),
   MenuTile(
       title: "Exercice 4",
-      info: "Display a tile",
+      info: "Affichage d'une partie d'une image",
       createExercice: () => const Exercice4()),
   MenuTile(
       title: "Exercice 5a",
-      info: "Grid of colored boxes",
+      info: "Grille fixe de cases colorées",
       createExercice: () => const Exercice5a()),
   MenuTile(
       title: "Exercice 5b",
-      info: "Fixed grid of cropped images",
+      info: "Grille fixe de cases d'images",
       createExercice: () => const Exercice5b()),
   MenuTile(
       title: "Exercice 5c",
-      info: "Configurable Taquin Board",
+      info: "Grille réglable de cases d'images",
       createExercice: () => const Exercice5c()),
   MenuTile(
       title: "Exercice 6a",
-      info: "Moving Tiles",
+      info: "Deux cases déplaçables",
       createExercice: () => const Exercice6a()),
   MenuTile(
       title: "Exercice 6b",
-      info: "Moving Tiles in Grid",
+      info: "Grille de cases colorées déplaçables",
       createExercice: () => const Exercice6b()),
+  MenuTile(
+      title: "Exercice 7",
+      info: "Jeu de taquin",
+      createExercice: () => const Exercice7()),
 ];
 
 //===========================

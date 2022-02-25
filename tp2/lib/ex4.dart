@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'common.dart';
 
-ImageTile tile = ImageTile(imageURL: 'https://picsum.photos/512', n: 3, x: 1, y: 1);
+Tile tile = ImageTile(image: const NetworkImage('https://picsum.photos/512'), n: 3, x: 1, y: 1);
 
 class Exercice4 extends StatelessWidget {
   const Exercice4({Key? key}) : super(key: key);

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'common.dart';
 
-const imageURL = 'https://picsum.photos/512';
-
 class Exercice6b extends StatefulWidget {
   const Exercice6b({Key? key}) : super(key: key);
 
@@ -14,7 +12,7 @@ class _Exercice6bState extends State<Exercice6b> {
   int n = 3;
   late int blankIndex;
   bool mustCreateTileList = true;
-  late List<ColorTile> tileList;
+  late List<Tile> tileList;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +39,8 @@ class _Exercice6bState extends State<Exercice6b> {
               children: tileList
                   .map((e) => e.getWidget(onTap: () {
                         setState(() {
-                          moveToBlank(tileList.indexOf(e), Direction.all);
+                          moveToBlank(
+                              n, tileList, tileList.indexOf(e));
                         });
                       }))
                   .toList(),
@@ -77,60 +76,9 @@ class _Exercice6bState extends State<Exercice6b> {
     );
   }
 
-  bool moveToBlank(int i, Direction d) {
-    bool directionFound = false;
-    if ((d == Direction.up || d == Direction.all) && !directionFound) {
-      //i-n est l'indice de la case en haut de i
-      if ((i - n) >= 0 && !tileList[i - n].isEmpty) {
-        moveToBlank(i - n, Direction.up); //La fonction est récursive pour permettre de bouger plusieurs cases d'un coup
-      }
-      if ((i - n) >= 0 && tileList[i - n].isEmpty) {
-        switchElements(tileList, i, i - n);
-        return true;
-      }
-    }
-    if ((d == Direction.down || d == Direction.all) && !directionFound) {
-      //i+n est l'indice de la case en bas de i
-      if ((i + n) < n * n && !tileList[i + n].isEmpty) {
-        moveToBlank(i + n, Direction.down);
-      }
-      if ((i + n) < n * n && tileList[i + n].isEmpty) {
-        switchElements(tileList, i, i + n);
-        return true;
-      }
-    }
-    if ((d == Direction.left || d == Direction.all) && !directionFound) {
-      //i-1 est l'indice de la case à gauche de i si i%n > 0
-      if ((i % n) > 0 && !tileList[i - 1].isEmpty) {
-        moveToBlank(i - 1, Direction.left);
-      }
-      if ((i % n) > 0 && tileList[i - 1].isEmpty) {
-        switchElements(tileList, i, i - 1);
-        return true;
-      }
-    }
-    if ((d == Direction.right || d == Direction.all) && !directionFound) {
-      //i+1 est l'indice de la case à gauche de i si (i+1)%n > 0
-      if (((i + 1) % n) > 0 && !tileList[i + 1].isEmpty) {
-        moveToBlank(i + 1, Direction.right);
-      }
-      if (((i + 1) % n) > 0 && tileList[i + 1].isEmpty) {
-        switchElements(tileList, i, i + 1);
-        return true;
-      }
-    }
-    return false;
-  }
-
-  void switchElements(List list, int index1, int index2) {
-    var temp = list[index2];
-    list[index2] = list[index1];
-    list[index1] = temp;
-  }
-
-  List<ColorTile> createTileList() {
+  List<Tile> createTileList() {
     //Construction de la liste des tiles
-    List<ColorTile> tileList = [];
+    List<Tile> tileList = [];
     for (int y = 0; y < n; y++) {
       for (int x = 0; x < n; x++) {
         tileList.add(
@@ -142,6 +90,28 @@ class _Exercice6bState extends State<Exercice6b> {
     tileList[blankIndex].isEmpty = true;
     return tileList;
   }
-}
 
-enum Direction { all, up, down, left, right }
+  /// Déplace la case d'incide [i] (et les cases entre la case d'indice [i] et la
+  /// case vide) vers la case vide. Si [d] vaut Direction.all, toutes les directions
+  /// sont testées. Sinon, seule la direction spécifiée est testée. [n] est le
+  /// nombre de cases par ligne et par colonne. [listTile] est la liste des cases
+  /// (1 dimension, tout à la suite, de en haut à gauche à en bas à droite en lignes).
+  void moveToBlank(int n, List<Tile> tileList, int i) {
+    //i-n est l'indice de la case en haut de i
+    if ((i - n) >= 0 && tileList[i - n].isEmpty) {
+      switchElements(tileList, i, i - n);
+    }
+    //i+n est l'indice de la case en bas de i
+    else if ((i + n) < n * n && tileList[i + n].isEmpty) {
+      switchElements(tileList, i, i + n);
+    }
+    //i-1 est l'indice de la case à gauche de i si i%n > 0
+    else if ((i % n) > 0 && tileList[i - 1].isEmpty) {
+      switchElements(tileList, i, i - 1);
+    }
+    //i+1 est l'indice de la case à gauche de i si (i+1)%n > 0
+    else if (((i + 1) % n) > 0 && tileList[i + 1].isEmpty) {
+      switchElements(tileList, i, i + 1);
+    }
+  }
+}

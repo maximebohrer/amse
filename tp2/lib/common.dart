@@ -9,20 +9,30 @@ math.Random random = math.Random();
 // n'y a pas de stateless widget à part car c'était plus simple à gérer dans le
 // reste du code
 
-class ColorTile {
+abstract class Tile {
+  /// Si true, la case est vide.
+  bool isEmpty = false;
+
+  /// Crée un widget représentant la tuile. [onTap] est la fonction à
+  /// exécuter lors du clique sur le widget.
+  Widget getWidget({void Function()? onTap});
+}
+
+class ColorTile extends Tile {
   late Color color;
   int number = 0;
-  bool isEmpty = false;
 
   ColorTile({required this.color, required this.number});
 
   ColorTile.randomColor(this.number) {
-    color =
-        HSVColor.fromAHSV(1, random.nextInt(360).toDouble(), 0.75, 1).toColor();
+    color = HSVColor.fromAHSV(1, randomInt(360).toDouble(), 0.75, 1).toColor();
   }
 
+  /// Crée un widget représentant la tuile. [onTap] est la fonction à
+  /// exécuter lors du clique sur le widget.
+  @override
   Widget getWidget({void Function()? onTap}) {
-    if (isEmpty) return const SizedBox.shrink(); //empty widget
+    if (isEmpty) return const SizedBox.shrink(); //widget vide
     return InkWell(
         child: Container(
           child: FittedBox(
@@ -46,21 +56,23 @@ class ColorTile {
 // ligne, et les coordonnées x et y (de 0 à n-1) de la case, et calcule
 // toute seule l'alignement.
 
-class ImageTile {
-  String imageURL = "";
+class ImageTile extends Tile {
+  ImageProvider image;
   int x = 0;
   int y = 0;
   int n = 0;
-  bool isEmpty = false;
 
   ImageTile(
-      {required this.imageURL,
+      {required this.image,
       required this.n,
       required this.x,
       required this.y});
 
+  /// Crée un widget représentant la tuile. [onTap] est la fonction à
+  /// exécuter lors du clique sur le widget.
+  @override
   Widget getWidget({void Function()? onTap}) {
-    if (isEmpty) return const SizedBox.shrink(); //empty widget
+    if (isEmpty) return const SizedBox.shrink(); //widget vide
     return InkWell(
         child: FittedBox(
           fit: BoxFit.fill,
@@ -69,7 +81,7 @@ class ImageTile {
               alignment: Alignment(2 * x / (n - 1) - 1, 2 * y / (n - 1) - 1),
               widthFactor: 1 / n,
               heightFactor: 1 / n,
-              child: Image.network(imageURL),
+              child: Image(image: image),
             ),
           ),
         ),
@@ -78,6 +90,14 @@ class ImageTile {
   }
 }
 
+/// Retourne un nombre aléatoire entre 0 inclus et [max] exlu.
 int randomInt(int max) {
   return random.nextInt(max);
+}
+
+/// Inverse les éléments d'indices [index1] et [index2] dans [list].
+void switchElements(List list, int index1, int index2) {
+  var temp = list[index2];
+  list[index2] = list[index1];
+  list[index1] = temp;
 }
