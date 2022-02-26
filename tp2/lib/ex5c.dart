@@ -17,7 +17,7 @@ class _Exercice5cState extends State<Exercice5c> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Taquin board"),
+        title: const Text("Grille d'images"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -33,7 +33,7 @@ class _Exercice5cState extends State<Exercice5c> {
               children: List<Widget>.generate(
                   n * n,
                   (i) =>
-                      ImageTile(image: image, n: n, x: i % n, y: i ~/ n)
+                      ImageTile(image: image, n: n, index: i)
                           .getWidget()),
             ),
 

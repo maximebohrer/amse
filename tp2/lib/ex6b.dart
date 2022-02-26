@@ -10,7 +10,6 @@ class Exercice6b extends StatefulWidget {
 
 class _Exercice6bState extends State<Exercice6b> {
   int n = 3;
-  late int blankIndex;
   bool mustCreateTileList = true;
   late List<Tile> tileList;
 
@@ -23,7 +22,7 @@ class _Exercice6bState extends State<Exercice6b> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Taquin board"),
+        title: const Text("Grille colorée"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -39,8 +38,7 @@ class _Exercice6bState extends State<Exercice6b> {
               children: tileList
                   .map((e) => e.getWidget(onTap: () {
                         setState(() {
-                          moveToBlank(
-                              n, tileList, tileList.indexOf(e));
+                          moveToBlank(tileList.indexOf(e));
                         });
                       }))
                   .toList(),
@@ -86,17 +84,12 @@ class _Exercice6bState extends State<Exercice6b> {
         );
       }
     }
-    blankIndex = randomInt(n * n);
-    tileList[blankIndex].isEmpty = true;
+    tileList[randomInt(n * n)].isEmpty = true;
     return tileList;
   }
 
-  /// Déplace la case d'incide [i] (et les cases entre la case d'indice [i] et la
-  /// case vide) vers la case vide. Si [d] vaut Direction.all, toutes les directions
-  /// sont testées. Sinon, seule la direction spécifiée est testée. [n] est le
-  /// nombre de cases par ligne et par colonne. [listTile] est la liste des cases
-  /// (1 dimension, tout à la suite, de en haut à gauche à en bas à droite en lignes).
-  void moveToBlank(int n, List<Tile> tileList, int i) {
+  /// Déplace la case d'incide [i] vers la case vide.
+  void moveToBlank(int i) {
     //i-n est l'indice de la case en haut de i
     if ((i - n) >= 0 && tileList[i - n].isEmpty) {
       switchElements(tileList, i, i - n);

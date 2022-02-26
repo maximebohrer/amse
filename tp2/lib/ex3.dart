@@ -59,7 +59,7 @@ class Exercice3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("TP2"),
+        title: const Text("TP Flutter 2"),
       ),
       body: ListView(
         children: listExercice,

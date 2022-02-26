@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'common.dart';
 
-Tile tile = ImageTile(image: const NetworkImage('https://picsum.photos/512'), n: 3, x: 1, y: 1);
+Tile tile = ImageTile(image: const NetworkImage('https://picsum.photos/512'), n: 3, index: 4);
 
 class Exercice4 extends StatelessWidget {
   const Exercice4({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class Exercice4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Display a Tile as a Cropped Image'),
+        title: const Text("Affichage et rognage d'image"),
         centerTitle: true,
       ),
       body: Center(

@@ -17,7 +17,7 @@ class _Exercice2State extends State<Exercice2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Rotate / resize image")),
+      appBar: AppBar(title: const Text("Transformations sur image")),
       body: SingleChildScrollView(
         child: Column(children: [
           
@@ -31,8 +31,7 @@ class _Exercice2State extends State<Exercice2> {
                 ..rotateX(rotX)
                 ..rotateZ(rotZ),
               child: const Image(
-                image: NetworkImage(
-                    "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"),
+                image: AssetImage("images/mouette.jpg"),
               ),
             ),
             padding: const EdgeInsets.all(10),

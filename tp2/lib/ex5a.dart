@@ -8,7 +8,7 @@ class Exercice5a extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("GridView Example (random colors)"),
+        title: const Text("Grille colorée"),
         centerTitle: true,
       ),
       body: GridView.count(

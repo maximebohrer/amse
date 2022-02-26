@@ -10,7 +10,7 @@ class Exercice5b extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Taquin board"),
+        title: const Text("Grille d'images"),
         centerTitle: true,
       ),
       body: GridView.count(
@@ -19,15 +19,15 @@ class Exercice5b extends StatelessWidget {
         crossAxisSpacing: 2.5,
         padding: const EdgeInsets.all(20.0),
         children: [
-          ImageTile(image: image, n: 3, x: 0, y: 0).getWidget(),
-          ImageTile(image: image, n: 3, x: 1, y: 0).getWidget(),
-          ImageTile(image: image, n: 3, x: 2, y: 0).getWidget(),
-          ImageTile(image: image, n: 3, x: 0, y: 1).getWidget(),
-          ImageTile(image: image, n: 3, x: 1, y: 1).getWidget(),
-          ImageTile(image: image, n: 3, x: 2, y: 1).getWidget(),
-          ImageTile(image: image, n: 3, x: 0, y: 2).getWidget(),
-          ImageTile(image: image, n: 3, x: 1, y: 2).getWidget(),
-          ImageTile(image: image, n: 3, x: 2, y: 2).getWidget(),
+          ImageTile(image: image, n: 3, index: 0).getWidget(),
+          ImageTile(image: image, n: 3, index: 1).getWidget(),
+          ImageTile(image: image, n: 3, index: 2).getWidget(),
+          ImageTile(image: image, n: 3, index: 3).getWidget(),
+          ImageTile(image: image, n: 3, index: 4).getWidget(),
+          ImageTile(image: image, n: 3, index: 5).getWidget(),
+          ImageTile(image: image, n: 3, index: 6).getWidget(),
+          ImageTile(image: image, n: 3, index: 7).getWidget(),
+          ImageTile(image: image, n: 3, index: 8).getWidget(),
         ],
       ),
     );

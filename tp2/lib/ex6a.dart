@@ -16,7 +16,7 @@ class Exercice6aState extends State<Exercice6a> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Moving Tiles'),
+        title: const Text('Cases déplaçables'),
         centerTitle: true,
       ),
       body: GridView.count(

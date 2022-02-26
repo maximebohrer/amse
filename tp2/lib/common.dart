@@ -13,6 +13,9 @@ abstract class Tile {
   /// Si true, la case est vide.
   bool isEmpty = false;
 
+  /// L'index de la case
+  int index = 0;
+
   /// Crée un widget représentant la tuile. [onTap] est la fonction à
   /// exécuter lors du clique sur le widget.
   Widget getWidget({void Function()? onTap});
@@ -20,12 +23,14 @@ abstract class Tile {
 
 class ColorTile extends Tile {
   late Color color;
-  int number = 0;
 
-  ColorTile({required this.color, required this.number});
+  ColorTile({required this.color, required int index}) {
+    super.index = index;
+  }
 
-  ColorTile.randomColor(this.number) {
+  ColorTile.randomColor(int index) {
     color = HSVColor.fromAHSV(1, randomInt(360).toDouble(), 0.75, 1).toColor();
+    super.index = index;
   }
 
   /// Crée un widget représentant la tuile. [onTap] est la fonction à
@@ -38,7 +43,7 @@ class ColorTile extends Tile {
           child: FittedBox(
               fit: BoxFit.contain,
               child: Text(
-                '$number',
+                '$index',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
@@ -55,18 +60,17 @@ class ColorTile extends Tile {
 // La classe des tiles images prend en argument le nombre n de cases sur une
 // ligne, et les coordonnées x et y (de 0 à n-1) de la case, et calcule
 // toute seule l'alignement.
-
 class ImageTile extends Tile {
   ImageProvider image;
   int x = 0;
   int y = 0;
   int n = 0;
 
-  ImageTile(
-      {required this.image,
-      required this.n,
-      required this.x,
-      required this.y});
+  ImageTile({required this.image, required this.n, required int index}) {
+    super.index = index;
+    x = index % n; //coordonnée x de la case
+    y = index ~/ n; //coordonnée y de la case
+  }
 
   /// Crée un widget représentant la tuile. [onTap] est la fonction à
   /// exécuter lors du clique sur le widget.

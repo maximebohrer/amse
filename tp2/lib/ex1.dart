@@ -7,8 +7,7 @@ class Exercice1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //child: const Image(image: NetworkImage("https://picsum.photos/512/1024"),),
-      child: const Image(image: NetworkImage("https://picsum.photos/512/1024"),),
+      child: const Image(image: AssetImage("images/mouette.jpg"),),
       padding: const EdgeInsets.all(10),
     );
   }
