@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'common.dart';
 
-const ImageProvider image = NetworkImage('https://picsum.photos/512');
+const ImageProvider image = AssetImage("images/mouette.jpg");
 
 class Exercice5b extends StatelessWidget {
   const Exercice5b({Key? key}) : super(key: key);

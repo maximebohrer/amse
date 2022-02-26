@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'common.dart';
 
-Tile tile = ImageTile(image: const NetworkImage('https://picsum.photos/512'), n: 3, index: 4);
+Tile tile = ImageTile(image: const AssetImage("images/mouette.jpg"), n: 3, index: 4);
 
 class Exercice4 extends StatelessWidget {
   const Exercice4({Key? key}) : super(key: key);
@@ -23,10 +23,10 @@ class Exercice4 extends StatelessWidget {
                 child: tile.getWidget(onTap: () {
                   print("tapped on tile");
                 }))),
-        SizedBox(
+        const SizedBox(
             height: 200,
             child:
-                Image.network('https://picsum.photos/512', fit: BoxFit.cover))
+                Image(image: AssetImage("images/mouette.jpg"), fit: BoxFit.cover))
       ])),
     );
   }
