@@ -10,14 +10,14 @@ class Exercice6b extends StatefulWidget {
 
 class _Exercice6bState extends State<Exercice6b> {
   int n = 3;
-  bool mustCreateTileList = true;
+  bool mustReset = true;
   late List<Tile> tileList;
 
   @override
   Widget build(BuildContext context) {
-    if (mustCreateTileList) {
-      tileList = createTileList();
-      mustCreateTileList = false;
+    if (mustReset) {
+      tileList = reset();
+      mustReset = false;
     }
 
     return Scaffold(
@@ -59,7 +59,7 @@ class _Exercice6bState extends State<Exercice6b> {
                       onChanged: (double value) {
                         setState(() {
                           n = value.toInt();
-                          mustCreateTileList = true;
+                          mustReset = true;
                         });
                       },
                     ),
@@ -74,7 +74,7 @@ class _Exercice6bState extends State<Exercice6b> {
     );
   }
 
-  List<Tile> createTileList() {
+  List<Tile> reset() {
     //Construction de la liste des tiles
     List<Tile> tileList = [];
     for (int y = 0; y < n; y++) {
