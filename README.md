@@ -19,10 +19,39 @@ TP 2
 
 Binome : DEVA Nilavan - BOHRER Maxime
 
-Lancement :
+### Lancement de l'application
+
 ```bash
 cd tp2
 flutter run
+```
+
+### Déploiement sur android
+
+Toutes les configurations pour créer des APK android ont été faites, il ne reste plus qu'à faire ces étapes :
+
+- Dans main.dart, commenter les lignes 2 et 19 et décommenter les lignes 3 et 20, afin de ne garder que le jeu de Taquin et pas les exercices précédents.
+
+- Créer une clé pour signer l'application par exemple dans ~/upload-keystore.jks (commande de java)
+```bash
+keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+```
+
+- modifier le fichier android/key.properties avec le mot de passe de la clé et son chemin
+
+- créer les APK
+```bash
+flutter build apk --split-per-abi
+```
+pour créer un fichier différent par architecture, ou
+```bash
+flutter build apk
+```
+pour créer un gros fichier qui englobe tout.
+
+- installer l'APK, soit en le déplaçant manuellement sur le téléphone et en l'installant, soit avec
+```bash
+flutter install
 ```
 
 ### Informations
