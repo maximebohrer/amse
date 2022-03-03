@@ -38,7 +38,7 @@ class _Exercice7State extends State<Exercice7> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Taquin board"),
+        title: const Text("Taquin"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -336,10 +336,15 @@ class ImageSelector extends StatelessWidget {
                 const NetworkImage('https://picsum.photos/512'), context),
             usePresetImage(const AssetImage('images/joconde.jpg'), context),
             usePresetImage(const AssetImage('images/fleur.jpg'), context),
+            usePresetImage(const AssetImage("images/city.jpg"), context),
             usePresetImage(const AssetImage('images/einstein.jpg'), context),
             usePresetImage(const AssetImage('images/stary_night.jpg'), context),
+            usePresetImage(const AssetImage("images/dog.jpg"), context),
             usePresetImage(const AssetImage('images/tour_eiffel.jpg'), context),
             usePresetImage(const AssetImage("images/mouette.jpg"), context),
+            usePresetImage(const AssetImage("images/lenna.png"), context),
+            usePresetImage(const AssetImage("images/shanghai.jpg"), context),
+            usePresetImage(const AssetImage("images/scream.jpg"), context),
           ]),
     );
   }
